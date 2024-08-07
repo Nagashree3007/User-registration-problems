@@ -4,7 +4,7 @@
 @Date: 2024-08-8-07
 @Last Modified by: Nagashree C R
 @Last Modified: 2024-08-07
-@Title :User registration problems UC1-User need to enter a valid First Name
+@Title :User registration problems UC2- User need to enter a valid Last Name - Last name
 
 '''
 
@@ -18,7 +18,7 @@ def check_name(name):
        Parameters:
        name (str): A string representing the first/last name to be checked.
        Return:
-       1 if the first_name is at least 3 characters long and starts with an uppercase letter.
+       1 if the first_name/second_name is at least 3 characters long and starts with an uppercase letter.
        0 otherwise.
     
     '''
@@ -37,8 +37,7 @@ def main():
                 print(f'Your Name is saved as {first_name} {second_name}')
                 break
             else:
-                print(f"{first_name} is not valid \n please follow the rules:\n 1.First name starts with Cap  \n 2.enter minimum 3 characters")
-                
+                print(f"{first_name} is not valid \n please follow the rules:\n 1.First name starts with Cap  \n 2.enter minimum 3 characters")           
     else:
         print(f"{first_name} is not valid \n please follow the rules:\n 1.First name starts with Cap  \n 2.enter minimum 3 characters")
         
