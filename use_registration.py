@@ -11,27 +11,34 @@
 import re 
 
 
-def check_firtname(first_name):
+def check_name(name):
     '''
        Definition:
-       The check_firstname function is designed to validate a given first name based on specific criteria.
+       The check_name function is designed to validate a given first/last name based on specific criteria.
        Parameters:
-       first_name (str): A string representing the first name to be checked.
+       name (str): A string representing the first/last name to be checked.
        Return:
        1 if the first_name is at least 3 characters long and starts with an uppercase letter.
        0 otherwise.
     
     '''
-    x=re.search(r"\b[A-Z]",first_name)
-    if len(first_name)>=3 and x:
+    x=re.search(r"\b[A-Z]",name)
+    if len(name)>=3 and x:
         return 1
     else:
         return 0
         
 def main():
     first_name=input("Enter your first name : ")
-    if check_firtname(first_name):
-        print(f"{first_name} is valid")
+    if check_name(first_name):
+        while True:
+            second_name=input("Enter your second name : ")
+            if check_name(second_name):
+                print(f'Your Name is saved as {first_name} {second_name}')
+                break
+            else:
+                print(f"{first_name} is not valid \n please follow the rules:\n 1.First name starts with Cap  \n 2.enter minimum 3 characters")
+                
     else:
         print(f"{first_name} is not valid \n please follow the rules:\n 1.First name starts with Cap  \n 2.enter minimum 3 characters")
         
