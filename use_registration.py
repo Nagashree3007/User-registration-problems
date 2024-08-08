@@ -5,7 +5,7 @@
 @Last Modified by: Nagashree C R
 @Last Modified: 2024-08-07
 @Title :User registration problems UC7-User need to follow pre-defined Password rules.
-        Rule3– Should have at least 1 numeric number
+        Rule4– Should have exactly 1 Special Character
 
 '''
 
@@ -35,9 +35,9 @@ def perform():
     
     Definition:
           function prompts the user to input their first and second names, validates each using the check_name
-    parameters:
+    Parameters:
            None
-    return:
+    Return:
            None
     
     '''
@@ -66,11 +66,11 @@ def check_email():
 def check_phonenumber():
     """
     Definition:
-        Prompts user for a phone number and validates its format.
-    parameters:
-        Confirms the number with the user before saving it.
+        Prompts user for a phone number and validates its format  and Confirms the number with the user before saving it.
+    Parameters:
+           None
     Return:
-        No parameters or return value.
+           None
         
     """
     while True:
@@ -91,17 +91,21 @@ def check_password():
     """
     
     Definition:
-        Prompts user for a password and confirms it.
-    Parameter:
-        Ensures the password is at least 8 alphanumeric characters long.
+        Prompts user for a password and confirms it and Ensures the password is 
+        1.at least 8 alphanumeric characters long
+        2.Should have at least 1 Upper Case
+        3.Should have at least 1 numeric number
+        4.Should have exactly 1 Special Character.
+    Parameters:
+           None.
     Return:
-        No parameters or return value.
+           None.
         
     """
     while True:
         password = input("Enter your password: ")
         # Improved regex for at least 8 alphanumeric characters
-        pattern = r'^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$'
+        pattern = r'^^(?=.*[A-Z])(?=.*\d)(?=.*[\W_])(?!.*[\W_].*[\W_]).{8,}$'
         
         if re.search(pattern, password):
             while True:
@@ -114,13 +118,14 @@ def check_password():
         else:
             print('Invalid password. 1.It must be at least 8 alphanumeric characters long.\
                 \n 2.Should have at least 1 Upper Case\
-                    \n Rule3– Should have at least 1 numeric number')
+                    \n 3.Should have at least 1 numeric number\
+                        \n4.Should have exactly 1 Special Character ')
 
           
 def main():
-    # perform()
-    # check_email()
-    # check_phonenumber()
+    perform()
+    check_email()
+    check_phonenumber()
     check_password()
         
 if __name__=='__main__':
