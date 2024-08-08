@@ -4,7 +4,7 @@
 @Date: 2024-08-8-07
 @Last Modified by: Nagashree C R
 @Last Modified: 2024-08-07
-@Title :User registration problems UC7-User need to follow pre-defined Password rules.
+@Title ::User registration problems UC7-User need to follow pre-defined Password rules.
         Rule4– Should have exactly 1 Special Character
 
 '''
@@ -35,9 +35,9 @@ def perform():
     
     Definition:
           function prompts the user to input their first and second names, validates each using the check_name
-    Parameters:
+    parameters:
            None
-    Return:
+    return:
            None
     
     '''
@@ -64,7 +64,6 @@ def check_email():
            None
         
     """
-    
     while True:
         gmail=input('Enter the gmail: ')
         if re.search(r'\b[A-Z].*@bl.co.*',gmail):
@@ -99,23 +98,21 @@ def check_phonenumber():
 
 def check_password():
     """
-    
-    Definition:
+   Definition:
         Prompts user for a password and confirms it and Ensures the password is 
         1.at least 8 alphanumeric characters long
         2.Should have at least 1 Upper Case
         3.Should have at least 1 numeric number
-        4.Should have exactly 1 Special Character.
+        4.Should have exactly 1 Special Character
     Parameters:
            None.
     Return:
            None.
-        
     """
     while True:
         password = input("Enter your password: ")
         # Improved regex for at least 8 alphanumeric characters
-        pattern = r'^^(?=.*[A-Z])(?=.*\d)(?=.*[\W_])(?!.*[\W_].*[\W_]).{8,}$'
+        pattern = r'^^(?=.*[A-Z])(?=.*\d)(?=.*[\W_])(?!.*[\W_].*[\W_]).{8,}$' 
         
         if re.search(pattern, password):
             while True:
@@ -128,8 +125,8 @@ def check_password():
         else:
             print('Invalid password. 1.It must be at least 8 alphanumeric characters long.\
                 \n 2.Should have at least 1 Upper Case\
-                    \n 3.Should have at least 1 numeric number\
-                        \n4.Should have exactly 1 Special Character ')
+                    \n Rule3– Should have at least 1 numeric number\
+                        \n4.Should have exactly 1 Special Character')
 
           
 def main():
