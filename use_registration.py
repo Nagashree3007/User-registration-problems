@@ -4,8 +4,8 @@
 @Date: 2024-08-8-07
 @Last Modified by: Nagashree C R
 @Last Modified: 2024-08-07
-@Title :User registration problems UC4-User need to follow pre-defined Mobile Format 
-        - E.g. 91 9919819801 - Country code follow by space
+@Title :User registration problems UC5User need to follow pre-defined Password rules.
+        Rule1– minimum 8
 
 '''
 
@@ -62,10 +62,17 @@ def check_email():
             break
         else:
             print(f"{gmail} is not valid \n please follow the rules:\n E.g. abc.xyz@bl.co.in \n 1.Email has 3 mandatory parts (abc, bl & co)\n 2.two optional (xyz & in) with precise @ and . positions")           
-            
-def main():
-    perform()
-    check_email()
+
+def check_phonenumber():
+    """
+    Definition:
+        Prompts user for a phone number and validates its format.
+    parameters:
+        Confirms the number with the user before saving it.
+    Return:
+        No parameters or return value.
+        
+    """
     while True:
         phone_num=input('Enter present working contact number :')
         if re.search(r'^\+?[0-9]{2}\s[0-9]{10}$',phone_num):
@@ -78,7 +85,42 @@ def main():
                 break
         else:
             print("you have entered wrong phone number format reffer the E.g. 91 9919819801 - Country code follow by space and re enter the ph.number")
+            
+
+def check_password():
+    """
     
+    Definition:
+        Prompts user for a password and confirms it.
+    Parameter:
+        Ensures the password is at least 8 alphanumeric characters long.
+    Return:
+        No parameters or return value.
+        
+    """
+    while True:
+        password = input("Enter your password: ")
+        # Improved regex for at least 8 alphanumeric characters
+        pattern = r'^[A-Za-z0-9]{8,}$'
+        
+        if re.search(pattern, password):
+            while True:
+                confirm = input("Confirm your password: ")
+                if password == confirm:
+                    print(f'Your password is saved as: {password}')
+                    return  # Exit both loops
+                else:
+                    print("Password did not match. Please try again.")
+        else:
+            print('Invalid password. It must be at least 8 alphanumeric characters long.')
+
+          
+def main():
+    perform()
+    check_email()
+    check_phonenumber()
+    check_password()
+        
 if __name__=='__main__':
     main()
     print("Thanks for the information....your data is sucessfully saved")
