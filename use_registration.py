@@ -55,6 +55,15 @@ def perform():
         perform()
         
 def check_email():
+    """
+    Definition:
+        Prompts user for a email and validates its format.
+    Parameters:
+           None
+    Return:
+           None
+        
+    """
     while True:
         gmail=input('Enter the gmail: ')
         if re.search(r'\b[A-Z].*@bl.co.*',gmail):
@@ -66,11 +75,11 @@ def check_email():
 def check_phonenumber():
     """
     Definition:
-        Prompts user for a phone number and validates its format.
-    parameters:
-        Confirms the number with the user before saving it.
+        Prompts user for a phone number and validates its format  and Confirms the number with the user before saving it.
+    Parameters:
+           None
     Return:
-        No parameters or return value.
+           None
         
     """
     while True:
@@ -89,13 +98,14 @@ def check_phonenumber():
 
 def check_password():
     """
-    
     Definition:
-        Prompts user for a password and confirms it.
-    Parameter:
-        Ensures the password is at least 8 alphanumeric characters long.
+        Prompts user for a password and confirms it and Ensures the password is 
+        1.at least 8 alphanumeric characters long
+        2.Should have at least 1 Upper Case
+    Parameters:
+           None.
     Return:
-        No parameters or return value.
+           None.
         
     """
     while True:
