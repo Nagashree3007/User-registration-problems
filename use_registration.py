@@ -52,8 +52,7 @@ def perform():
         print(f"{first_name} is not valid \n please follow the rules:\n 1.First name starts with Cap  \n 2.enter minimum 3 characters")
         perform()
         
-def main():
-    perform()
+def check_email():
     while True:
         gmail=input('Enter the gmail: ')
         if re.search(r'\b[A-Z].*@bl.co.*',gmail):
@@ -62,5 +61,22 @@ def main():
         else:
             print(f"{gmail} is not valid \n please follow the rules:\n E.g. abc.xyz@bl.co.in \n 1.Email has 3 mandatory parts (abc, bl & co)\n 2.two optional (xyz & in) with precise @ and . positions")           
             
+def main():
+    perform()
+    check_email()
+    while True:
+        phone_num=input('Enter present working contact number :')
+        if re.search(r'^\+?[0-9]{2}\s[0-9]{10}$',phone_num):
+            print(f'your contact number is {phone_num}')
+            verify=int(input("Are you sure about the number you gave???...if no please enter 1 else 0  :"))
+            if verify==1:
+                pass
+            else:
+                print(f'your contact number is saved as {phone_num}')
+                break
+        else:
+            print()
+    
 if __name__=='__main__':
     main()
+    print("Thanks for the information....your data is sucessfully saved")
