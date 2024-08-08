@@ -4,7 +4,9 @@
 @Date: 2024-08-8-07
 @Last Modified by: Nagashree C R
 @Last Modified: 2024-08-07
-@Title :User registration problems UC3-User need to enter a valid email.
+@Title :User registration problems UC4-User need to follow pre-defined Mobile Format 
+        - E.g. 91 9919819801 - Country code follow by space
+
 '''
 
 import re 
@@ -75,7 +77,7 @@ def main():
                 print(f'your contact number is saved as {phone_num}')
                 break
         else:
-            print()
+            print("you have entered wrong phone number format reffer the E.g. 91 9919819801 - Country code follow by space and re enter the ph.number")
     
 if __name__=='__main__':
     main()
