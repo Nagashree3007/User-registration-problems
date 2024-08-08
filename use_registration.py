@@ -4,8 +4,8 @@
 @Date: 2024-08-8-07
 @Last Modified by: Nagashree C R
 @Last Modified: 2024-08-07
-@Title :User registration problems UC5-User need to follow pre-defined Password rules.
-        Rule1– minimum 8
+@Title :User registration problems UC6-User need to follow pre-defined Password rules.
+        Rule2– Should have at least 1 Upper Case
 
 '''
 
@@ -101,7 +101,7 @@ def check_password():
     while True:
         password = input("Enter your password: ")
         # Improved regex for at least 8 alphanumeric characters
-        pattern = r'^[A-Za-z0-9]{8,}$'
+        pattern = r'(?=.*[A-Z]).[A-Za-z0-9]{8,}$'
         
         if re.search(pattern, password):
             while True:
@@ -112,7 +112,7 @@ def check_password():
                 else:
                     print("Password did not match. Please try again.")
         else:
-            print('Invalid password. It must be at least 8 alphanumeric characters long.')
+            print('Invalid password. 1.It must be at least 8 alphanumeric characters long.\n 2.Should have at least 1 Upper Case')
 
           
 def main():
