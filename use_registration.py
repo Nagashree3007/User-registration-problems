@@ -4,8 +4,7 @@
 @Date: 2024-08-8-07
 @Last Modified by: Nagashree C R
 @Last Modified: 2024-08-07
-@Title :User registration problems UC2- User need to enter a valid Last Name - Last name
-
+@Title :User registration problems UC3-User need to enter a valid email.
 '''
 
 import re 
@@ -27,21 +26,41 @@ def check_name(name):
         return 1
     else:
         return 0
-        
-def main():
+
+
+def perform():
+    '''
+    
+    Definition:
+          function prompts the user to input their first and second names, validates each using the check_name
+    parameters:
+           None
+    return:
+           None
+    
+    '''
     first_name=input("Enter your first name : ")
     if check_name(first_name):
         while True:
             second_name=input("Enter your second name : ")
             if check_name(second_name):
                 print(f'Your Name is saved as {first_name} {second_name}')
-                break
+                return first_name,second_name
             else:
                 print(f"{first_name} is not valid \n please follow the rules:\n 1.First name starts with Cap  \n 2.enter minimum 3 characters")           
     else:
         print(f"{first_name} is not valid \n please follow the rules:\n 1.First name starts with Cap  \n 2.enter minimum 3 characters")
+        perform()
         
-    
-        
+def main():
+    perform()
+    while True:
+        gmail=input('Enter the gmail: ')
+        if re.search(r'\b[A-Z].*@bl.co.*',gmail):
+            print(f'Your email is valid and saved as {gmail}')
+            break
+        else:
+            print(f"{gmail} is not valid \n please follow the rules:\n E.g. abc.xyz@bl.co.in \n 1.Email has 3 mandatory parts (abc, bl & co)\n 2.two optional (xyz & in) with precise @ and . positions")           
+            
 if __name__=='__main__':
     main()
