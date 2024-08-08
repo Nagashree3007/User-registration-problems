@@ -55,6 +55,16 @@ def perform():
         perform()
         
 def check_email():
+    """
+    Definition:
+        Prompts user for a email and validates its format.
+    Parameters:
+           None
+    Return:
+           None
+        
+    """
+    
     while True:
         gmail=input('Enter the gmail: ')
         if re.search(r'\b[A-Z].*@bl.co.*',gmail):
