@@ -128,9 +128,9 @@ def check_password():
 
           
 def main():
-    # perform()
-    # check_email()
-    # check_phonenumber()
+    perform()
+    check_email()
+    check_phonenumber()
     check_password()
         
 if __name__=='__main__':
