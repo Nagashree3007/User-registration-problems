@@ -30,18 +30,46 @@ def check_name(name):
         return 0
 
 def check_mail(gmail):
+    """
+    Definition:
+        Prompts user for a email and validates its format.
+    Parameters:
+           None
+    Return:
+           None
+        
+    """
     if re.search( r'^[a-zA-Z0-9._%+-]+@bl\.co(\.in)?$',gmail):
         return 1
     else:
         return 0
                   
 def check_phonenumber(phone_num):
+    """
+    Definition:
+        Prompts user for a phone number and validates its format  and Confirms the number with the user before saving it.
+    Parameters:
+           None
+    Return:
+           None
+        
+    """
     if re.search(r'^\+?[0-9]{2}\s[0-9]{10}$',phone_num):
         return 1
     else:
         return 0
     
 def check_password(password):
+    """
+    Definition:
+        Prompts user for a password and confirms it and Ensures the password is 
+        1.at least 8 alphanumeric characters long
+    Parameters:
+           None.
+    Return:
+           None.
+        
+    """
     pattern = r'^[A-Za-z0-9]{8,}$'
     if re.search(pattern, password):
         return 1
