@@ -29,19 +29,23 @@ def check_name(name):
         return 0
         
 def main():
-    first_name=input("Enter your first name : ")
-    if check_name(first_name):
-        while True:
-            second_name=input("Enter your second name : ")
-            if check_name(second_name):
-                print(f'Your Name is saved as {first_name} {second_name}')
-                break
-            else:
-                print(f"{first_name} is not valid \n please follow the rules:\n 1.First name starts with Cap  \n 2.enter minimum 3 characters")           
-    else:
-        print(f"{first_name} is not valid \n please follow the rules:\n 1.First name starts with Cap  \n 2.enter minimum 3 characters")
+    flag=0
+    while flag!=1:
+        first_name=input("Enter your first name : ")
+        if check_name(first_name):
+            flag=1
+            while flag!=0:
+                second_name=input("Enter your second name : ")
+                if check_name(second_name):
+                    flag=1
+                    print(f'Your Name is saved as {first_name} {second_name}')
+                    break
+                else:
+                    print(f"{second_name} is not valid \n please follow the rules:\n 1.second name starts with Cap  \n 2.enter minimum 3 characters")           
+        else:
+            print(f"{first_name} is not valid \n please follow the rules:\n 1.first name starts with Cap  \n 2.enter minimum 3 characters")
+            
         
-    
         
 if __name__=='__main__':
     main()
