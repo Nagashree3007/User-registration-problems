@@ -4,8 +4,7 @@
 @Date: 2024-08-8-07
 @Last Modified by: Nagashree C R
 @Last Modified: 2024-08-07
-@Title ::User registration problems UC7-User need to follow pre-defined Password rules.
-        Rule4– Should have exactly 1 Special Character
+@Title :User registration problems UC3-User need to enter a valid email.
 
 '''
 
@@ -28,21 +27,38 @@ def check_name(name):
         return 1
     else:
         return 0
-        
-def main():
-    first_name=input("Enter your first name : ")
-    if check_name(first_name):
-        while True:
-            second_name=input("Enter your second name : ")
-            if check_name(second_name):
-                print(f'Your Name is saved as {first_name} {second_name}')
-                break
-            else:
-                print(f"{first_name} is not valid \n please follow the rules:\n 1.First name starts with Cap  \n 2.enter minimum 3 characters")           
+
+def check_mail(gmail):
+    if re.search( r'^[a-zA-Z0-9._%+-]+@bl\.co(\.in)?$',gmail):
+        return 1
     else:
-        print(f"{first_name} is not valid \n please follow the rules:\n 1.First name starts with Cap  \n 2.enter minimum 3 characters")
-        
-    
+        return 0
+                  
+def main():
+    flag=0
+    while flag!=1:
+        first_name=input("Enter your first name : ")
+        if check_name(first_name):
+            flag=1
+            while flag!=0:
+                second_name=input("Enter your second name : ")
+                if check_name(second_name):
+                    flag=0
+                    print(f'Your Name is saved as {first_name} {second_name}')
+                    while flag!=1:
+                        gmail=input('Enter the gmail: ')
+                        if check_mail(gmail):
+                            print(f'Your email is valid and saved as {gmail}')
+                            break
+                        else:
+                            print(f"{gmail} is not valid \n please follow the rules:\n E.g. abc.xyz@bl.co.in \n 1.Email has 3 mandatory parts (abc, bl & co)\n 2.two optional (xyz & in) with precise @ and . positions")
+                    flag=1
+                    break
+                else:
+                    print(f"{second_name} is not valid \n please follow the rules:\n 1.second name starts with Cap  \n 2.enter minimum 3 characters")           
+        else:
+            print(f"{first_name} is not valid \n please follow the rules:\n 1.first name starts with Cap  \n 2.enter minimum 3 characters")
+
         
 if __name__=='__main__':
     main()
