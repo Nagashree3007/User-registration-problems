@@ -4,8 +4,8 @@
 @Date: 2024-08-8-07
 @Last Modified by: Nagashree C R
 @Last Modified: 2024-08-07
-@Title ::User registration problems UC6-User need to follow pre-defined Password rules.
-        Rule2– Should have at least 1 Upper Case
+@Title :User registration problems UC6-User need to follow pre-defined Password rules.
+        1.at least 8 alphanumeric characters long
 
 '''
 
@@ -64,14 +64,13 @@ def check_password(password):
     Definition:
         Prompts user for a password and confirms it and Ensures the password is 
         1.at least 8 alphanumeric characters long
-        2.Should have at least 1 Upper Case
     Parameters:
            None.
     Return:
            None.
         
     """
-    pattern =  r'^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$'
+    pattern =  r'[A-Za-z\d\W_]{8,}$'
     if re.search(pattern, password):
         return 1
     else:
