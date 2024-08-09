@@ -63,14 +63,16 @@ def check_password(password):
     Definition:
         Prompts user for a password and confirms it and Ensures the password is 
         1.at least 8 alphanumeric characters long
-        2.Rule2– Should have at least 1 Upper Case
+        2.Should have at least 1 Upper Case
+        3.Should have at least 1 numeric number
+        
     Parameters:
            None.
     Return:
            None.
         
     """
-    pattern = r'^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$'
+    pattern =  r'^(?=.*[A-Z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+{}\[\]:;"\'<>,.?/`~\\|-]{8,}$'
     if re.search(pattern, password):
         return 1
     else:
