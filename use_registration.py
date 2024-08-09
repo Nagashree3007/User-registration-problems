@@ -71,7 +71,7 @@ def check_password(password):
            None.
         
     """
-    pattern = r'(?=.*[A-Z]).[A-Za-z0-9]{8,}$'
+    pattern = r'^(?=.*[A-Z])[A-Za-z\d\W_]{8,}$'
     if re.search(pattern, password):
         return 1
     else:
