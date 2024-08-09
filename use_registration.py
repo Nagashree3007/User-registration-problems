@@ -59,26 +59,26 @@ def check_phonenumber(phone_num):
         return 0
     
 def check_password(password):
-    """
-    Definition:
-        Prompts user for a password and confirms it and Ensures the password is 
-        1.at least 8 alphanumeric characters long
-        2.Should have at least 1 Upper Case
-        3.Should have at least 1 numeric number
-        4.Should have exactly 1 Special Character
-        
-    Parameters:
-           None.
-    Return:
-           None.
-        
-    """
-    pattern =  r'^(?=.*[A-Z])(?=.*\d)(?=.*[\W_])(?!.*[\W_].*[\W_]).{8,}$'
-    if re.search(pattern, password):
-        return 1
-    else:
+    # Ensure the password length is at least 8 characters
+    if len(password) < 8:
         return 0
     
+    # Ensure at least one uppercase letter
+    if not re.search(r'[A-Z]', password):
+        return 0
+    
+    # Ensure at least one digit
+    if not re.search(r'\d', password):
+        return 0
+    
+    # Count special characters
+    special_chars = re.findall(r'[!@#$%^&*()_+{}\[\]:;"\'<>,.?/\\|`~]', password)
+    
+    # Ensure there is exactly one special character
+    if len(special_chars) != 1:
+        return 0
+    
+    return 1
                       
 def main():
     flag=0
