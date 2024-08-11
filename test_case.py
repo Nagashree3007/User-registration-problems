@@ -9,7 +9,7 @@ class TestCheckName(unittest.TestCase):
         self.assertEqual(check_name('john'), 0)
         self.assertEqual(check_name('al'), 0)
         self.assertEqual(check_name('aLice'), 0)
-        
+         
     def test_check_email_valid(self):
         self.assertTrue(check_mail('abc.xyz@bl.co.in'))
         self.assertTrue(check_mail('example@bl.co'))
