@@ -4,7 +4,7 @@
 @Date: 2024-08-8-07
 @Last Modified by: Nagashree C R
 @Last Modified: 2024-08-07
-@Title ::User registration problems UC7-User need to follow pre-defined Password rules.
+@Title ::User registration problems UC9-User need to follow pre-defined Password rules.
 
 '''
 
@@ -74,7 +74,7 @@ def check_password(password):
     # Count special characters
     special_chars = re.findall(r'[!@#$%^&*()_+{}\[\]:;"\'<>,.?/\\|`~]', password)
     
-    # Ensure there is exactly one special character
+    # Ensure exactly one special character
     if len(special_chars) != 1:
         return 0
     
