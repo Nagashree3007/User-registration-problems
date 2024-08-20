@@ -5,7 +5,7 @@
 @Last Modified by: Nagashree C R
 @Last Modified: 2024-08-07
 @Title :User registration problems UC7-User need to follow pre-defined Password rules.
-        Rule4– Should have exactly 1 Special Character test cases
+        Rule4– Should have exactly 1 Special Character 
 
 '''
 
@@ -93,11 +93,26 @@ def check_password(password):
            None.
         
     """
-    pattern =  r'^(?=.*[A-Z])(?=.*\d)(?=.*[\W_])(?!.*[\W_].*[\W_]).{8,}$'
-    if re.search(pattern, password):
-        return 1
-    else:
+    # Ensure the password length is at least 8 characters
+    if len(password) < 8:
         return 0
+    
+    # Ensure at least one uppercase letter
+    if not re.search(r'[A-Z]', password):
+        return 0
+    
+    # Ensure at least one digit
+    if not re.search(r'\d', password):
+        return 0
+    
+    # Count special characters
+    special_chars = re.findall(r'[!@#$%^&*()_+{}\[\]:;"\'<>,.?/\\|`~]', password)
+    
+    # Ensure exactly one special character
+    if len(special_chars) != 1:
+        return 0
+    
+    return 1
     
                       
 def main():
