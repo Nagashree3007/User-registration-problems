@@ -79,20 +79,21 @@ def check_phonenumber(phone_num):
         return 0
     
 def check_password(password):
-    # Ensure the password length is at least 8 characters
-    if len(password) < 8:
+    """
+    Definition:
+        Prompts user for a password and validates its format  and Confirms the password with the user before saving it.
+    Parameters:
+           None
+    Return:
+           None
+        
+    """
+    if re.search(r'^\w{8,}$',password):
+        return 1
+    else:
         return 0
-    
-    # Ensure at least one uppercase letter
-    if not re.search(r'[A-Z]', password):
-        return 0
-    
-    # Ensure at least one digit
-    if not re.search(r'\d', password):
-        return 0
-    
-    return 1
-                      
+
+                     
 def main():
     flag=0
     while flag!=1:
