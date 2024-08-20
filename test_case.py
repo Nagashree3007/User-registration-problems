@@ -15,7 +15,7 @@ from use_registration import check_mail
 from use_registration import check_phonenumber
 from use_registration  import check_password
 
-class TestCheckName(unittest.TestCase):
+class TestCheckName(unittest.TestCase): 
     def test_check_name_valid(self):
         self.assertEqual(check_name('John'), 1)
         self.assertEqual(check_name('Alice'), 1)
