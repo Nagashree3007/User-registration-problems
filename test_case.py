@@ -11,11 +11,12 @@ class TestCheckName(unittest.TestCase):
         self.assertEqual(check_name('aLice'), 0)
         
     def test_check_email_valid(self):
-        self.assertTrue(check_mail('abc.xyz@bl.co.in'))
-        self.assertTrue(check_mail('example@bl.co'))
-        self.assertTrue(check_mail('example@bl.co.in'))
-        self.assertFalse(check_mail('abc@xyz.co'))
-        self.assertFalse(check_mail('example@bl.com'))
+        self.assertTrue(check_mail('abc@1.com'))
+        self.assertTrue(check_mail('abc@gmail.com.com'))
+        self.assertTrue(check_mail('abc+100@gmail.com'))
+        self.assertFalse(check_mail('abc'))
+        self.assertFalse(check_mail('abc@.com.my'))
+        self.assertFalse(check_mail('abc123@gmail.a'))
         
     def test_check_phone_valid(self):
         self.assertTrue(check_phonenumber('+91 9919819801'))
