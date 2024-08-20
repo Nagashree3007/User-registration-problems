@@ -1,3 +1,13 @@
+'''
+
+@Author: Nagashree C R
+@Date: 2024-08-8-07
+@Last Modified by: Nagashree C R
+@Last Modified: 2024-08-07
+@Title :User registration problems UC7-User need to follow pre-defined Password rules.
+        Rule4– Should have exactly 1 Special Character  test case
+
+'''
 import unittest
 from use_registration import check_password, check_name, check_mail, check_phonenumber
 
