@@ -4,12 +4,11 @@
 @Date: 2024-08-8-07
 @Last Modified by: Nagashree C R
 @Last Modified: 2024-08-07
-@Title :User registration problems UC6-User need to follow pre-defined Password rules.
-        1.at least 8 alphanumeric characters long
+@Title :User registration problems UC9-User need to follow gmail rules.
 
 '''
 
-import re
+import re 
 
 
 def check_name(name):
@@ -29,20 +28,40 @@ def check_name(name):
     else:
         return 0
 
-def check_mail(gmail):
+def check_mail(email):
     """
-    Definition:
-        Prompts user for a email and validates its format.
+    Validates the format of an email address according to specified rules.
+
     Parameters:
-           None
-    Return:
-           None
-        
+        email (str): The email address to validate.
+
+    Returns:
+        bool: True if the email address is valid, False otherwise.
     """
-    if re.search( r'^[a-zA-Z0-9._%+-]+@bl\.co(\.in)?$',gmail):
-        return 1
-    else:
-        return 0
+    # Refined regex pattern for specific email structure
+    pattern = r'^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9-]+)\.([a-zA-Z]{2,})(?:\.([a-zA-Z]{2,}))?$'
+    
+    match = re.match(pattern, email)
+    if match:
+        local, domain, tld, optional_tld = match.groups()
+        
+        # Check if the domain and local parts do not start or end with a dot
+        if local.startswith('.') or local.endswith('.') or domain.startswith('.') or domain.endswith('.'):
+            return False
+        
+        # Check for consecutive dots in domain and local parts
+        if '..' in domain or '..' in local:
+            return False
+        
+        # Check that the domain does not start or end with a dot
+        if domain.startswith('.') or domain.endswith('.'):
+            return False
+        
+        return True
+    
+    return False
+
+
                   
 def check_phonenumber(phone_num):
     """
@@ -60,22 +79,19 @@ def check_phonenumber(phone_num):
         return 0
     
 def check_password(password):
-    """
-    Definition:
-        Prompts user for a password and confirms it and Ensures the password is 
-        1.at least 8 alphanumeric characters long
-    Parameters:
-           None.
-    Return:
-           None.
-        
-    """
-    pattern =  r'[A-Za-z\d\W_]{8,}$'
-    if re.search(pattern, password):
-        return 1
-    else:
+    # Ensure the password length is at least 8 characters
+    if len(password) < 8:
         return 0
     
+    # Ensure at least one uppercase letter
+    if not re.search(r'[A-Z]', password):
+        return 0
+    
+    # Ensure at least one digit
+    if not re.search(r'\d', password):
+        return 0
+    
+    return 1
                       
 def main():
     flag=0
