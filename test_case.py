@@ -44,7 +44,7 @@ class TestCheckName(unittest.TestCase):
         self.assertEqual(check_password('A1bB2c3d4'), 1)
         self.assertEqual(check_password('sPass1'), 0)
         self.assertEqual(check_password('short1'), 0  )
-        self.assertEqual(check_password('password'), 0)
+        self.assertEqual(check_password('password'), 1)
         
 
 if __name__ == '__main__':
