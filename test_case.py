@@ -4,7 +4,7 @@
 @Date: 2024-08-8-07
 @Last Modified by: Nagashree C R
 @Last Modified: 2024-08-07
-@Title :User registration problems UC3-User need to enter a valid email.
+@Title :User registration problems UC3-User need to enter a valid email test case.
 
 '''
 
