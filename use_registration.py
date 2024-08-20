@@ -4,7 +4,8 @@
 @Date: 2024-08-8-07
 @Last Modified by: Nagashree C R
 @Last Modified: 2024-08-07
-@Title :User registration problems UC9-User need to follow gmail rules.
+@Title :User registration problems UC5-User need to follow password rules.
+    Rule1– minimum 8 Characters
 
 '''
 
@@ -82,6 +83,8 @@ def check_password(password):
     """
     Definition:
         Prompts user for a password and validates its format  and Confirms the password with the user before saving it.
+        Rule1– minimum 8 Characters
+
     Parameters:
            None
     Return:
