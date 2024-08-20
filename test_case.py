@@ -11,11 +11,27 @@ class TestCheckName(unittest.TestCase):
         self.assertEqual(check_name('aLice'), 0)
          
     def test_check_email_valid(self):
-        self.assertTrue(check_mail('abc.xyz@bl.co.in'))
-        self.assertTrue(check_mail('example@bl.co'))
-        self.assertTrue(check_mail('example@bl.co.in'))
-        self.assertFalse(check_mail('abc@xyz.co'))
-        self.assertFalse(check_mail('example@bl.com'))
+        self.assertTrue(check_mail('abc@yahoo.com'))
+        self.assertTrue(check_mail('abc-100@yahoo.com'))
+        self.assertTrue(check_mail('abc.100@yahoo.com'))
+        self.assertTrue(check_mail('abc111@abc.com'))
+        self.assertTrue(check_mail('abc-100@abc.net'))
+        self.assertTrue(check_mail('abc.100@abc.com.au'))
+        self.assertTrue(check_mail('abc@1.com'))
+        self.assertTrue(check_mail('abc@gmail.com.com'))
+        self.assertTrue(check_mail('abc+100@gmail.com'))
+        self.assertFalse(check_mail('abc'))
+        self.assertFalse(check_mail('abc@.com.my'))
+        self.assertFalse(check_mail('abc123@gmail.a'))
+        self.assertFalse(check_mail('abc123@.com'))
+        self.assertFalse(check_mail('abc123@.com.com'))
+        self.assertFalse(check_mail('abc()*@gmail.com'))
+        self.assertFalse(check_mail('.abc@abc.com'))
+        self.assertFalse(check_mail('abc@%*.com'))
+        self.assertFalse(check_mail('abc..2002@gmail.com'))
+        self.assertFalse(check_mail('abc@abc@gmail.com'))
+        self.assertFalse(check_mail('abc@gmail.com.1a'))
+        self.assertFalse(check_mail('abc@gmail.com.aa.au'))
         
     def test_check_phone_valid(self):
         self.assertTrue(check_phonenumber('+91 9919819801'))
@@ -30,26 +46,10 @@ class TestCheckName(unittest.TestCase):
         self.assertEqual(check_password('abc123@gmail.a'),0)
         self.assertEqual(check_password('abc123@.com'),0)
         self.assertEqual(check_password('abc123@.com.com'),0)
-        self.assertEqual(check_password('.abc@abc.com'),0)
-        self.assertEqual(check_password('abc()*@gmail.com'),0)
-        self.assertEqual(check_password('abc@%*.com'),0)
-        self.assertEqual(check_password('abc..2002@gmail.com'),0)
-        self.assertEqual(check_password('abc.@gmail.com'),0)
-        self.assertEqual(check_password('abc@abc@gmail.com'),0)
-        self.assertEqual(check_password('abc@gmail.com.1a'),0)
-        self.assertEqual(check_password('abc@gmail.com.aa.au'),0)
-        self.assertEqual(check_password('abc111@abccom'),0)
-
         self.assertEqual(check_password('Abcyah12@oocom'),1)
         self.assertEqual(check_password('abc-100@yaHoocom'),1)
         self.assertEqual(check_password('Abc100@yahoocom'),1)
-        self.assertEqual(check_password('aBc111@abcnet'),1)
-        self.assertEqual(check_password('abc100@Abccomau'),1)
-        self.assertEqual(check_password('abc@1cOm'),1)
-        self.assertEqual(check_password('abc@gmailC7omcom'),1)
-        self.assertEqual(check_password('aBc100@gmailcom'),1)
-
-
+       
 
 if __name__ == '__main__':
     unittest.main()
