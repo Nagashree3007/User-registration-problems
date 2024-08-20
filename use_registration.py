@@ -5,6 +5,7 @@
 @Last Modified by: Nagashree C R
 @Last Modified: 2024-08-07
 @Title :User registration problems UC3-User need to enter a valid email.
+
 '''
 
 import re 
@@ -27,11 +28,38 @@ def check_name(name):
     else:
         return 0
 
-def check_mail(gmail):
-    if re.search( r'^[a-zA-Z0-9._%+-]+@bl\.co(\.in)?$',gmail):
-        return 1
-    else:
-        return 0
+def check_mail(email):
+    """
+    Validates the format of an email address according to specified rules.
+
+    Parameters:
+        email (str): The email address to validate.
+
+    Returns:
+        bool: True if the email address is valid, False otherwise.
+    """
+    # Refined regex pattern for specific email structure
+    pattern = r'^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9-]+)\.([a-zA-Z]{2,})(?:\.([a-zA-Z]{2,}))?$'
+    
+    match = re.match(pattern, email)
+    if match:
+        local, domain, tld, optional_tld = match.groups()
+        
+        # Check if the domain and local parts do not start or end with a dot
+        if local.startswith('.') or local.endswith('.') or domain.startswith('.') or domain.endswith('.'):
+            return False
+        
+        # Check for consecutive dots in domain and local parts
+        if '..' in domain or '..' in local:
+            return False
+        
+        # Check that the domain does not start or end with a dot
+        if domain.startswith('.') or domain.endswith('.'):
+            return False
+        
+        return True
+    
+    return False
                   
 def main():
     flag=0
