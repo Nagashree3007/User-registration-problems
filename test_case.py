@@ -1,3 +1,13 @@
+'''
+ 
+@Author: Nagashree C R
+@Date: 2024-08-8-07
+@Last Modified by: Nagashree C R
+@Last Modified: 2024-08-07
+@Title :User registration problems UC7-User need to follow pre-defined Password rules test case.
+        Rule3– Should have at least 1 numeric number
+
+'''
 import unittest
 from use_registration import check_password, check_name, check_mail, check_phonenumber
 
